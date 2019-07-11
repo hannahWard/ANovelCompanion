@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANovelCompanion", "ANovelCompanion\ANovelCompanion.csproj", "{ACF20495-784B-4CEB-954B-1AAEB9918961}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACF20495-784B-4CEB-954B-1AAEB9918961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF20495-784B-4CEB-954B-1AAEB9918961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF20495-784B-4CEB-954B-1AAEB9918961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF20495-784B-4CEB-954B-1AAEB9918961}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16172F70-A860-4031-84B7-7026E4DCF6D0}
+	EndGlobalSection
+EndGlobal
