@@ -10,10 +10,12 @@ namespace ANovelCompanion.Data
     public class NovelDbContext : IdentityDbContext
     {
         public DbSet<Book> Books { get; set; }
+        public DbSet<RatingAndReview> RatingsAndReviews { get; set; }
 
         public NovelDbContext(DbContextOptions<NovelDbContext> options)
             : base(options)
         {
         }
+
     }
 }

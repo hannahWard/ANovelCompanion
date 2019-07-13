@@ -8,18 +8,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ANovelCompanion.Controllers
 {
-    public class BookController : Controller
+    public class Book : Controller
     {
         private RepositoryFactory repositoryFactory;
 
-        public BookController(RepositoryFactory repositoryFactory)
+        public Book(RepositoryFactory repositoryFactory)
         {
             this.repositoryFactory = repositoryFactory;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<BookListViewModel> books = BookListViewModel.GetBooks(repositoryFactory);
+            return View(books);
         }
 
         [HttpGet]
@@ -29,9 +30,34 @@ namespace ANovelCompanion.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(BookCreateViewModel book)
+        public IActionResult Create(BookCreateViewModel model)
         {
-            book.Persist(repositoryFactory);
+            if (!ModelState.IsValid)
+                return View(model);
+
+            model.Persist(repositoryFactory);
+            return RedirectToAction(actionName: nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            return View(new BookEditViewModel(id, repositoryFactory));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, BookEditViewModel book)
+        {
+            if (!ModelState.IsValid)
+                return View(book);
+
+            book.Persist(id, repositoryFactory);
+            return RedirectToAction(actionName: nameof(Index));
+        }
+
+        public IActionResult Delete(int id)
+        {
+            repositoryFactory.GetBookRepository().Delete(id);
             return RedirectToAction(actionName: nameof(Index));
         }
     }
