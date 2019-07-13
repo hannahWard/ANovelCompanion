@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ANovelCompanion.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class NovelDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public NovelDbContext(DbContextOptions<NovelDbContext> options)
             : base(options)
         {
         }
