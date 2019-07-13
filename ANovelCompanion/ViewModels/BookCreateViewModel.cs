@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ANovelCompanion.Data.Repositories;
+using ANovelCompanion.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,8 +10,6 @@ namespace ANovelCompanion.ViewModels
 {
     public class BookCreateViewModel
     {
-        public int Id { get; set; }
-
         [Required(ErrorMessage = "Title Required")]
         public string Title { get; set; }
 
@@ -20,5 +20,16 @@ namespace ANovelCompanion.ViewModels
         [Display(Name = "Author's Last Name")]
         [Required(ErrorMessage = "Author's Last Name Required")]
         public string AuthorLastName { get; set; }
+
+        public void Persist(RepositoryFactory repositoryFactory)
+        {
+            Book book = new Book
+            {
+                Title = this.Title,
+                AuthorFirstName = this.AuthorFirstName,
+                AuthorLastName = this.AuthorLastName
+            };
+            repositoryFactory.GetBookRepository().Save(book);
+        }
     }
 }
