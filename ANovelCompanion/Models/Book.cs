@@ -16,5 +16,6 @@ namespace ANovelCompanion.Models
             get { return $"{AuthorLastName}, {AuthorFirstName}"; }
         }
         public virtual List<RatingAndReview> Ratings { get; set; }
+        public virtual List<CategoryBook> CategoryBooks { get; set; }
     }
 }

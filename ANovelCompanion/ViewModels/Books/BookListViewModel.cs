@@ -3,6 +3,7 @@ using ANovelCompanion.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +24,8 @@ namespace ANovelCompanion.ViewModels
 
         public string Title { get; set; }
         public string Author { get; set; }
+
+        [Display(Name="Average Rating")]
         public double AverageRating { get; set; }
 
         public BookListViewModel(Book book)

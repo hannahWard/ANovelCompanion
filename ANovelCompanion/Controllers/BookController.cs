@@ -26,7 +26,8 @@ namespace ANovelCompanion.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            BookCreateViewModel model = new BookCreateViewModel(repositoryFactory);
+            return View(model);
         }
 
         [HttpPost]

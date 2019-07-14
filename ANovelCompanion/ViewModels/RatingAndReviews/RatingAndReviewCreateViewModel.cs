@@ -2,6 +2,7 @@
 using ANovelCompanion.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,8 +10,9 @@ namespace ANovelCompanion.ViewModels.RatingAndReviews
 {
     public class RatingAndReviewCreateViewModel
     {
-        public int Id { get; set; }
+        [Required(ErrorMessage ="Rating Required")]
         public int Rating { get; set; }
+
         public string Review { get; set; }
         public int BookId { get; set; }
 

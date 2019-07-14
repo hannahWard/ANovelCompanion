@@ -24,5 +24,10 @@ namespace ANovelCompanion.Data.Repositories
         {
             return new Repository<RatingAndReview>(context);
         }
+
+        public IRepository<Category> GetCategoryRepository()
+        {
+            return new Repository<Category>(context);
+        }
     }
 }

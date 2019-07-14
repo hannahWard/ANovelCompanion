@@ -28,14 +28,22 @@
                 <span asp-validation-for="AuthorLastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="CategoryIds" class="control-label"></label>
+                @foreach (var category in Model.Categories)
+                {
+                    <label>@category.Name</label>
+                    <input type="checkbox" name="CategoryIds" value="@category.Id" />
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Book" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Book List</a>
 </div>
 
 @section Scripts {

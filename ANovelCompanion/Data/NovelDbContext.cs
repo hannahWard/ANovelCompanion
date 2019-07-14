@@ -11,6 +11,7 @@ namespace ANovelCompanion.Data
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<RatingAndReview> RatingsAndReviews { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public NovelDbContext(DbContextOptions<NovelDbContext> options)
             : base(options)
