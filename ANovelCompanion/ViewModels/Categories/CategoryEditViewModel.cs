@@ -10,8 +10,7 @@ namespace ANovelCompanion.ViewModels.Categories
 {
     public class CategoryEditViewModel
     {
-        [Required(ErrorMessage = "Category Required")]
-        [Display(Name = "Category")]
+        
         public string Name { get; set; }
 
         public CategoryEditViewModel() {}

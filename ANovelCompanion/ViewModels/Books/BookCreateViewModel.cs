@@ -11,7 +11,6 @@ namespace ANovelCompanion.ViewModels
     public class BookCreateViewModel
     {
         [Display(Name = "Categories")]
-        [Required(ErrorMessage = "Select At Least One Category")]
         public List<int> CategoryIds { get; set; }
         public List<Category> Categories { get; set; }
 

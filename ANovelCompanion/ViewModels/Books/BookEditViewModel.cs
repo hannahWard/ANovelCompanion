@@ -21,7 +21,7 @@ namespace ANovelCompanion.ViewModels
         [Required(ErrorMessage = "Author's Last Name Required")]
         public string AuthorLastName { get; set; }
 
-        [Required(ErrorMessage = "Select At Least One Category")]
+        
         [Display(Name = "Categories")]
         public List<int> CategoryIds { get; set; }
 
@@ -36,15 +36,7 @@ namespace ANovelCompanion.ViewModels
             this.AuthorFirstName = book.AuthorFirstName;
             this.AuthorLastName = book.AuthorLastName;
             this.Categories = repositoryFactory.GetCategoryRepository().GetModels().ToList();
-            //this.CategoryIds = book.CategoryBooks.Select(cb => cb.CategoryId).ToList();
-            if (book.CategoryBooks.Count() == 0)
-            {
-                this.CategoryIds = new List<int>();
-            }
-            else
-            {
-                this.CategoryIds = book.CategoryBooks.Select(cb => cb.CategoryId).ToList();
-            }
+            this.CategoryIds = book.CategoryBooks.Select(cb => cb.CategoryId).ToList();
         }
 
         public void Persist(int id, RepositoryFactory repositoryFactory)
