@@ -29,5 +29,10 @@ namespace ANovelCompanion.Data.Repositories
         {
             return new Repository<Category>(context);
         }
+
+        public IRepository<CategoryBook> GetCategoryBookRepository()
+        {
+            return new Repository<CategoryBook>(context);
+        }
     }
 }

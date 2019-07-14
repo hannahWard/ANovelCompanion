@@ -12,5 +12,6 @@ namespace ANovelCompanion.Data.Repositories
         int Save(T model);
         void Delete(int id);
         void Update(T model);
+        void DeleteManyToMany(T model);
     }
 }

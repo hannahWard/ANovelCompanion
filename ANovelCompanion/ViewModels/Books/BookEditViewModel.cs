@@ -21,6 +21,12 @@ namespace ANovelCompanion.ViewModels
         [Required(ErrorMessage = "Author's Last Name Required")]
         public string AuthorLastName { get; set; }
 
+        [Required(ErrorMessage = "Select At Least One Category")]
+        [Display(Name = "Categories")]
+        public List<int> CategoryIds { get; set; }
+
+        public List<Category> Categories { get; set; }
+
         public BookEditViewModel() { }
 
         public BookEditViewModel(int id, RepositoryFactory repositoryFactory)
@@ -29,6 +35,16 @@ namespace ANovelCompanion.ViewModels
             this.Title = book.Title;
             this.AuthorFirstName = book.AuthorFirstName;
             this.AuthorLastName = book.AuthorLastName;
+            this.Categories = repositoryFactory.GetCategoryRepository().GetModels().ToList();
+            //this.CategoryIds = book.CategoryBooks.Select(cb => cb.CategoryId).ToList();
+            if (book.CategoryBooks.Count() == 0)
+            {
+                this.CategoryIds = new List<int>();
+            }
+            else
+            {
+                this.CategoryIds = book.CategoryBooks.Select(cb => cb.CategoryId).ToList();
+            }
         }
 
         public void Persist(int id, RepositoryFactory repositoryFactory)
@@ -40,7 +56,28 @@ namespace ANovelCompanion.ViewModels
                 AuthorFirstName = this.AuthorFirstName,
                 AuthorLastName = this.AuthorLastName
             };
-            repositoryFactory.GetBookRepository().Update(book);
+            List<CategoryBook> categoryBooks = CreateManyToManyRelationships(book.Id, repositoryFactory);
+            book.CategoryBooks = categoryBooks;
+            repositoryFactory.GetBookRepository().Update(book); 
+        }
+
+        private List<CategoryBook> CreateManyToManyRelationships(int bookId, RepositoryFactory repositoryFactory)
+        {
+            List<CategoryBook> categoryBooks =
+                repositoryFactory.GetCategoryBookRepository()
+                .GetModels()
+                .Where(b => b.BookId == bookId)
+                .ToList();
+
+            foreach (var item in categoryBooks)
+            {
+                repositoryFactory.GetCategoryBookRepository().DeleteManyToMany(item);
+            }
+
+            return CategoryIds
+                .Select(catId => new CategoryBook { BookId = bookId, CategoryId = catId })
+                .ToList();
+
         }
     }
 }

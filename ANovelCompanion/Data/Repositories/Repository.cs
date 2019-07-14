@@ -47,5 +47,11 @@ namespace ANovelCompanion.Data.Repositories
             context.Remove(model);
             context.SaveChanges();
         }
+
+        public void DeleteManyToMany(TEntity model)
+        {
+            context.Remove(model);
+            context.SaveChanges();
+        }
     }
 }

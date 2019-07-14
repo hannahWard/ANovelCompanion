@@ -41,5 +41,27 @@ namespace ANovelCompanion.Controllers
             return RedirectToAction(actionName: nameof(Index));
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            return View(new CategoryEditViewModel(id, repositoryFactory));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, CategoryEditViewModel category)
+        {
+            if (!ModelState.IsValid)
+                return View(category);
+
+            category.Persist(id, repositoryFactory);
+            return RedirectToAction(actionName: nameof(Index));
+        }
+
+        public IActionResult Delete(int id)
+        {
+            repositoryFactory.GetCategoryRepository().Delete(id);
+            return RedirectToAction(actionName: nameof(Index));
+        }
+
     }
 }
