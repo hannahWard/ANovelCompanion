@@ -61,5 +61,10 @@ namespace ANovelCompanion.Controllers
             repositoryFactory.GetBookRepository().Delete(id);
             return RedirectToAction(actionName: nameof(Index));
         }
+
+        public IActionResult Details(int id)
+        {
+            return View(new BookDetailsViewModel(id, repositoryFactory));
+        }
     }
 }

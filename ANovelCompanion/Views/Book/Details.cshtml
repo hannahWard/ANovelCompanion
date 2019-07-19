@@ -1,0 +1,18 @@
+﻿@model ANovelCompanion.ViewModels.BookDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Title</h1>
+<h2>@Model.Author</h2>
+
+@foreach (var category in Model.Categories)
+{
+    <p>@category</p>
+}
+
+<p>@Model.AverageRating @Html.ActionLink("Ratings & Reviews", "Index", "RatingAndReview", new { bookId = Model.Id })</p>
+
+
+

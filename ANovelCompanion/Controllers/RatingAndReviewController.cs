@@ -17,9 +17,13 @@ namespace ANovelCompanion.Controllers
             this.repositoryFactory = repositoryFactory;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int bookId)
         {
-            return View();
+            List<RatingAndReviewListItemViewModel> ratingsAndReviews =
+                RatingAndReviewListItemViewModel.GetRatingsAndReviews(bookId, repositoryFactory);
+            ViewBag.Id = bookId;
+            ViewBag.Title = repositoryFactory.GetBookRepository().GetById(bookId).Title;
+            return View(ratingsAndReviews);
         }
 
         [HttpGet]

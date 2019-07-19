@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ANovelCompanion.ViewModels.RatingAndReviews.RatingAndReviewListItemViewModel>
+
+
+
+<h1>@ViewBag.Title</h1>
+<h2>Ratings And Reviews</h2>
+
+<p>
+    @Html.ActionLink("Rate & Review", "Create", new { bookId = ViewBag.Id })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Review)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
