@@ -14,5 +14,20 @@
 
 <p>@Model.AverageRating @Html.ActionLink("Ratings & Reviews", "Index", "RatingAndReview", new { bookId = Model.Id })</p>
 
+<p>@Html.ActionLink("Add A Spoiler", "Create", "Bit", new { bookId = Model.Id })</p>
+
+<h2>Spoilers</h2>
+@foreach (var bit in Model.Bits)
+{
+<table>
+    <thead>
+        <th>@bit.Title</th>
+    </thead>
+    <tbody>
+        <td>@bit.Description</td>
+    </tbody>
+</table>
+}
+
 
 

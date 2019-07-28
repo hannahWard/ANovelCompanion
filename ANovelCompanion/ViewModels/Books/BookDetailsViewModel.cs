@@ -22,6 +22,8 @@ namespace ANovelCompanion.ViewModels
 
         public List<string> Categories { get; set; }
 
+        public List<Bit> Bits { get; set; }
+
         public BookDetailsViewModel(int bookId, RepositoryFactory repositoryFactory)
         {
             Book book = repositoryFactory.GetBookRepository().GetById(bookId);
@@ -43,6 +45,7 @@ namespace ANovelCompanion.ViewModels
                 categories.Add(item.Category.Name);
             }
             this.Categories = categories;
+            this.Bits = book.Bits;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ANovelCompanion.Data
         public DbSet<RatingAndReview> RatingsAndReviews { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryBook> CategoryBooks { get; set; }
+        public DbSet<Bit> Bits { get; set; }
 
         public NovelDbContext(DbContextOptions<NovelDbContext> options)
             : base(options)

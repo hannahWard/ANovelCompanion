@@ -34,5 +34,10 @@ namespace ANovelCompanion.Data.Repositories
         {
             return new Repository<CategoryBook>(context);
         }
+
+        public IRepository<Bit> GetBitRepository()
+        {
+            return new Repository<Bit>(context);
+        }
     }
 }
