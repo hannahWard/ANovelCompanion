@@ -28,20 +28,28 @@
                 <span asp-validation-for="AuthorLastName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <label asp-for="CategoryIds" class="control-label"></label>
-                <input hidden type="checkbox" name="CategoryIds" value="4002" checked/>
                 @foreach (var category in Model.Categories)
                 {
                     <label>@category.Name</label>
-
-                    @if (Model.CategoryIds.Contains(category.Id))
+                    @if (Model.CategoryIds != null)
                     {
-                        <input type="checkbox" name="CategoryIds" value="@category.Id" checked />
+                        @if (Model.CategoryIds.Contains(category.Id))
+                        {
+                            <input type="checkbox" name="CategoryIds" value="@category.Id" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="CategoryIds" value="@category.Id" />
+                        }
                     }
                     else
                     {
                         <input type="checkbox" name="CategoryIds" value="@category.Id" />
                     }
+
+
                 }
             </div>
             <div class="form-group">

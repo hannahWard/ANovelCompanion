@@ -16,6 +16,9 @@ namespace ANovelCompanion.ViewModels.Bits
         [Required(ErrorMessage = "Description Required")]
         public string Description { get; set; }
 
+        [Display(Name = "Image URL")]
+        public string Image { get; set; }
+
         public int BookId { get; set; }
 
         public void Persist(RepositoryFactory repositoryFactory)
@@ -24,6 +27,7 @@ namespace ANovelCompanion.ViewModels.Bits
             {
                 Title = this.Title,
                 Description = this.Description,
+                Image = this.Image,
                 BookId = this.BookId
             };
             repositoryFactory.GetBitRepository().Save(bit);

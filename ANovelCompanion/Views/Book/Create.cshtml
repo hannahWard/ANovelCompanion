@@ -28,17 +28,18 @@
                 <span asp-validation-for="AuthorLastName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <label asp-for="CategoryIds" class="control-label"></label>
-                <input hidden type="checkbox" name="CategoryIds" value="4002" checked/>
                 @foreach (var category in Model.Categories)
                 {
                     <label>@category.Name</label>
                     <input type="checkbox" name="CategoryIds" value="@category.Id" />
                 }
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Add Book" class="btn btn-primary" />
-            </div>
+            </div>  
         </form>
     </div>
 </div>

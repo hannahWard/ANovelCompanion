@@ -34,7 +34,17 @@ namespace ANovelCompanion.Controllers
         public IActionResult Create(BookCreateViewModel model)
         {
             if (!ModelState.IsValid)
+            {
                 return View(model);
+            }
+                
+            if(model.CategoryIds == null)
+            {
+                model.Categories = repositoryFactory.GetCategoryRepository().GetModels();
+                ModelState.AddModelError("", "Please, select at least one category");
+                return View(model);
+            }
+                
 
             model.Persist(repositoryFactory);
             return RedirectToAction(actionName: nameof(Index));
@@ -51,6 +61,13 @@ namespace ANovelCompanion.Controllers
         {
             if (!ModelState.IsValid)
                 return View(book);
+
+            if (book.CategoryIds == null)
+            {
+                book.Categories = repositoryFactory.GetCategoryRepository().GetModels();
+                ModelState.AddModelError("", "Please, select at least one category");
+                return View(book);
+            }
 
             book.Persist(id, repositoryFactory);
             return RedirectToAction(actionName: nameof(Index));
