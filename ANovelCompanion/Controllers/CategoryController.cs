@@ -41,6 +41,7 @@ namespace ANovelCompanion.Controllers
             return RedirectToAction(actionName: nameof(Index));
         }
 
+        
         [HttpGet]
         public IActionResult Edit(int id)
         {

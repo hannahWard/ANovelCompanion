@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ANovelCompanion.Data.Repositories;
 using ANovelCompanion.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ANovelCompanion.Controllers
@@ -50,12 +51,14 @@ namespace ANovelCompanion.Controllers
             return RedirectToAction(actionName: nameof(Index));
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {
             return View(new BookEditViewModel(id, repositoryFactory));
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(int id, BookEditViewModel book)
         {
@@ -73,6 +76,7 @@ namespace ANovelCompanion.Controllers
             return RedirectToAction(actionName: nameof(Index));
         }
 
+        [Authorize]
         public IActionResult Delete(int id)
         {
             repositoryFactory.GetBookRepository().Delete(id);
