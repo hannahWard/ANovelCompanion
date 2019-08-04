@@ -15,6 +15,7 @@ using ANovelCompanion.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ANovelCompanion.Data.Repositories;
+using ANovelCompanion.Models;
 
 namespace ANovelCompanion
 {
@@ -49,9 +50,16 @@ namespace ANovelCompanion
                       .ToList()
                       .ForEach(T => services.AddScoped(T));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<IdentityUser, ApplicationRole>(
+                options => options.Stores.MaxLengthForKeys = 128)
+                .AddEntityFrameworkStores<NovelDbContext>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<NovelDbContext>();
+                .AddDefaultTokenProviders();
+
+            //services.AddDefaultIdentity<IdentityUser>()
+            //    .AddRoles<IdentityRole>()
+            //    .AddDefaultUI(UIFramework.Bootstrap4)
+            //    .AddEntityFrameworkStores<NovelDbContext>();
 
 
             services.Configure<IdentityOptions>(options =>
@@ -111,5 +119,9 @@ namespace ANovelCompanion
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+       
+
+        
     }
 }
