@@ -35,9 +35,9 @@ namespace ANovelCompanion.Data.Repositories
             return new Repository<CategoryBook>(context);
         }
 
-        public IRepository<Bit> GetBitRepository()
+        public IRepository<Spoiler> GetSpoilerRepository()
         {
-            return new Repository<Bit>(context);
+            return new Repository<Spoiler>(context);
         }
     }
 }

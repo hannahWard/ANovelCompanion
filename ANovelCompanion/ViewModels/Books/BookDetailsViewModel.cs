@@ -22,7 +22,7 @@ namespace ANovelCompanion.ViewModels
 
         public List<string> Categories { get; set; }
 
-        public List<Bit> Bits { get; set; }
+        public List<Spoiler> Spoilers { get; set; }
 
         public BookDetailsViewModel(int bookId, RepositoryFactory repositoryFactory)
         {
@@ -45,7 +45,7 @@ namespace ANovelCompanion.ViewModels
                 categories.Add(item.Category.Name);
             }
             this.Categories = categories;
-            this.Bits = book.Bits;
+            this.Spoilers = book.Spoilers;
         }
     }
 }
