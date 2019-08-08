@@ -4,12 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using ANovelCompanion.Data.Repositories;
 using ANovelCompanion.ViewModels.RatingAndReviews;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ANovelCompanion.Controllers
 {
-    [Authorize]
     public class RatingAndReviewController : Controller
     {
         private RepositoryFactory repositoryFactory;

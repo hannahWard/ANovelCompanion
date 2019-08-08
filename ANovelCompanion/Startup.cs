@@ -50,11 +50,16 @@ namespace ANovelCompanion
                       .ToList()
                       .ForEach(T => services.AddScoped(T));
 
-            services.AddIdentity<IdentityUser, IdentityRole>(
+            services.AddIdentity<IdentityUser, ApplicationRole>(
                 options => options.Stores.MaxLengthForKeys = 128)
                 .AddEntityFrameworkStores<NovelDbContext>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddDefaultTokenProviders();
+
+            //services.AddDefaultIdentity<IdentityUser>()
+            //    .AddRoles<IdentityRole>()
+            //    .AddDefaultUI(UIFramework.Bootstrap4)
+            //    .AddEntityFrameworkStores<NovelDbContext>();
 
 
             services.Configure<IdentityOptions>(options =>

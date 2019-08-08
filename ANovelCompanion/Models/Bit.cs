@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ANovelCompanion.Models
 {
-    public class Spoiler : IModel
+    public class Bit : IModel
     {
         public int Id { get; set; }
         public string Title { get; set; }
