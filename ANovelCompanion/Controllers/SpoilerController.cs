@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ANovelCompanion.Data.Repositories;
-using ANovelCompanion.ViewModels.Bits;
+using ANovelCompanion.ViewModels.Spoilers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ANovelCompanion.Controllers
 {
-    public class Bit : Controller
+    public class Spoiler : Controller
     {
         private RepositoryFactory repositoryFactory;
 
-        public Bit(RepositoryFactory repositoryFactory)
+        public Spoiler(RepositoryFactory repositoryFactory)
         {
             this.repositoryFactory = repositoryFactory;
         }
@@ -23,13 +24,15 @@ namespace ANovelCompanion.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Create(int bookId)
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(int bookId, BitCreateViewModel model)
+        [Authorize]
+        public IActionResult Create(int bookId, SpoilerCreateViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);

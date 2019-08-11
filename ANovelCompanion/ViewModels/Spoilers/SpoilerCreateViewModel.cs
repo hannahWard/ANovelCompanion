@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ANovelCompanion.ViewModels.Bits
+namespace ANovelCompanion.ViewModels.Spoilers
 {
-    public class BitCreateViewModel
+    public class SpoilerCreateViewModel
     {
         [Required(ErrorMessage = "Title Required")]
         public string Title { get; set; }
@@ -23,14 +23,14 @@ namespace ANovelCompanion.ViewModels.Bits
 
         public void Persist(RepositoryFactory repositoryFactory)
         {
-            Bit bit = new Bit
+            Spoiler spoiler = new Spoiler
             {
                 Title = this.Title,
                 Description = this.Description,
                 Image = this.Image,
                 BookId = this.BookId
             };
-            repositoryFactory.GetBitRepository().Save(bit);
+            repositoryFactory.GetSpoilerRepository().Save(spoiler);
         }
 
 

@@ -17,6 +17,6 @@ namespace ANovelCompanion.Models
         }
         public virtual List<RatingAndReview> Ratings { get; set; }
         public virtual List<CategoryBook> CategoryBooks { get; set; }
-        public virtual List<Bit> Bits { get; set; }
+        public virtual List<Spoiler> Spoilers { get; set; }
     }
 }
