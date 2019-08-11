@@ -42,17 +42,25 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 43px;
+    text-align: center;
+    background: url(https://hdwallsource.com/img/2014/6/wonderful-book-pages-wallpaper-43889-44973-hd-wallpapers.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    max-width: 1375px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-image: linear-gradient(#EEE8AA,#F0E68C);
 }
 
 .image {
@@ -61,3 +69,4 @@ body {
   max-width: 130px;
   width: auto;
 }
+

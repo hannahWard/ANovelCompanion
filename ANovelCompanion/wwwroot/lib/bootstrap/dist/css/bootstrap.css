@@ -42,10 +42,10 @@
 }
 
 html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -76,11 +76,13 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
+  margin-left: 16%;
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-left: 16%;
 }
 
 abbr[title],
@@ -548,10 +550,10 @@ pre code {
 
 .container {
   width: 100%;
-  padding-right: 15px;
+  /*padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto;*/
 }
 
 @media (min-width: 576px) {
@@ -4052,13 +4054,13 @@ input[type="button"].btn-block {
 }
 
 .nav {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 }
 
 .nav-link {
@@ -4146,16 +4148,17 @@ input[type="button"].btn-block {
 }
 
 .navbar {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-image: linear-gradient(#F0E68C, #EEE8AA);
 }
 
 .navbar > .container,
@@ -10035,5 +10038,22 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.table-center {
+    margin-left: 9%;
+    width: 100%;
+    padding: 10%;
+    background-image: linear-gradient(#EEE8BF,#F0E68F);
+}
+
+.bg-img {
+    background: url(https://hdwallsource.com/img/2014/6/wonderful-book-pages-wallpaper-43889-44973-hd-wallpapers.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    max-width: 1375px;
+    
 }
 /*# sourceMappingURL=bootstrap.css.map */
