@@ -15,16 +15,16 @@
 
 <p>Average Rating: @Model.AverageRating | @Html.ActionLink("Ratings & Reviews", "Index", "RatingAndReview", new { bookId = Model.Id })</p>
 
-<p>@Html.ActionLink("Add A Spoiler", "Create", "Spoiler", new { bookId = Model.Id })</p>
+<p>@Html.ActionLink("Add A Spoiler", "Create", "Bit", new { bookId = Model.Id })</p>
 
 <h2><u>Spoilers</u></h2>
-@foreach (var spoiler in Model.Spoilers)
+@foreach (var bit in Model.Bits)
 {
-    <h3>@spoiler.Title</h3>
-    <p>@spoiler.Description</p>
-    @if (!String.IsNullOrEmpty(spoiler.Image))
+    <h3>@bit.Title</h3>
+    <p>@bit.Description</p>
+    @if (!String.IsNullOrEmpty(bit.Image))
     {
-        <a href="@spoiler.Image"><img id="image" src="@Url.Content(spoiler.Image)" /></a>
+        <a href="@bit.Image"><img id="image" src="@Url.Content(bit.Image)" /></a>
     }
     <hr />
 }

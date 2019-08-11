@@ -25,7 +25,6 @@ namespace ANovelCompanion.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Create()
         {
             BookCreateViewModel model = new BookCreateViewModel(repositoryFactory);
@@ -33,7 +32,6 @@ namespace ANovelCompanion.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult Create(BookCreateViewModel model)
         {
             if (!ModelState.IsValid)
@@ -53,14 +51,14 @@ namespace ANovelCompanion.Controllers
             return RedirectToAction(actionName: nameof(Index));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {
             return View(new BookEditViewModel(id, repositoryFactory));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(int id, BookEditViewModel book)
         {
@@ -78,7 +76,7 @@ namespace ANovelCompanion.Controllers
             return RedirectToAction(actionName: nameof(Index));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             repositoryFactory.GetBookRepository().Delete(id);

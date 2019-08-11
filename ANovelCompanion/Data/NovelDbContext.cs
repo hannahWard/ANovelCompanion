@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ANovelCompanion.Data
 {
-    public class NovelDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
+    public class NovelDbContext : IdentityDbContext<IdentityUser, ApplicationRole, string>
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<RatingAndReview> RatingsAndReviews { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryBook> CategoryBooks { get; set; }
-        public DbSet<Spoiler> Spoilers { get; set; }
+        public DbSet<Bit> Bits { get; set; }
 
         public NovelDbContext(DbContextOptions<NovelDbContext> options)
             : base(options)

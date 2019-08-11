@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using ANovelCompanion.ViewModels.Administration;
 
 namespace ANovelCompanion.Areas.Identity.Pages.Account
 {
@@ -18,7 +17,6 @@ namespace ANovelCompanion.Areas.Identity.Pages.Account
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
@@ -26,13 +24,11 @@ namespace ANovelCompanion.Areas.Identity.Pages.Account
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            RoleManager<IdentityRole> roleManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _roleManager = roleManager;
             _logger = logger;
             _emailSender = emailSender;
         }
@@ -92,10 +88,6 @@ namespace ANovelCompanion.Areas.Identity.Pages.Account
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-
-                  
-                    IdentityResult identityResult = await _userManager.AddToRoleAsync(user, "User");
-
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)

@@ -4,12 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using ANovelCompanion.Data.Repositories;
 using ANovelCompanion.ViewModels.Categories;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ANovelCompanion.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class Category : Controller
     {
         private RepositoryFactory repositoryFactory;
