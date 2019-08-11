@@ -1,4 +1,48 @@
-﻿#image {
+﻿#img-home-background {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.middle-background {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.main-title {
+    font-size: 100px;
+    
+}
+
+#body {
+    font-size: 25px;
+    
+}
+
+.description {
+    
+    font-size: 37px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+textarea {
+    height: 150px;
+    width: 350px;
+}
+#image {
     max-height: 130px;
     max-width: 130px;
     height: auto;
@@ -20,3 +64,5 @@ hr {
     margin-bottom: 5%;
     margin-left: auto;
 }
+
+
