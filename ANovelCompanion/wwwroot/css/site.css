@@ -2,9 +2,10 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    font-family: 'IM Fell English SC', serif;
 }
 
 /* Sticky footer styles
@@ -60,7 +61,7 @@ body {
     /* Set the fixed height of the footer here */
     height: 60px;
     line-height: 60px; /* Vertically center the text there */
-    background-image: linear-gradient(#EEE8AA,#F0E68C);
+    background: transparent;
 }
 
 .image {
@@ -69,4 +70,98 @@ body {
   max-width: 130px;
   width: auto;
 }
+
+.table-center {
+    margin-left: 9%;
+    width: 100%;
+    padding: 10%;
+    background-image: linear-gradient(#EEE8BF,#F0E68F);
+}
+
+.bg-img {
+    background: url('../Resources/bookpages.jpg')no-repeat center center fixed;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+}
+
+.navbar {
+    position: absolute;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    /*background-image: linear-gradient(#F0E68C, #EEE8AA);*/
+    background: transparent;
+    width: 100%;
+}
+
+.main-title {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 80px;
+    font-weight: 20;
+    font-stretch: extra-expanded;
+    width: 100%;
+    margin-top: 10%;
+    margin-left: -5%;
+    text-align: left;
+    opacity: .7;
+}
+
+.minor-title {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 50px;
+    font-weight: 20;
+    font-stretch: extra-expanded;
+    width: 100%;
+    margin-left: -5%;
+    margin-top: -2%;
+    text-align: left;
+    opacity: .7;
+}
+
+.description {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 30px;
+    font-weight: 20;
+    font-stretch: extra-expanded;
+    width: 100%;
+    margin-left: -5%;
+    margin-top: 3%;
+    text-align: left;
+    justify-content:flex-end;
+}
+
+.quote {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 30px;
+    font-weight: 20;
+    font-stretch: extra-expanded;
+    width: 100%;
+    margin-top: 15%;
+    margin-left: -5.5%;
+    text-align: match-parent;
+    justify-content: flex-end;
+    color: black;
+}
+
+/*.text-box {
+    box-shadow: 1px;
+    margin-left: 5%;
+    margin-top: 30%;
+    width: 100%;
+    text-align:end;
+    justify-content: flex-end;
+    background: linear-gradient(#F0E68C, #EEE8AA)
+}*/
+
 
