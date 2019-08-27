@@ -2,33 +2,36 @@
 
 
 
-<h1>@ViewBag.Title</h1>
-<h2>Ratings And Reviews</h2>
+<h1 class="book-title">@ViewBag.Title</h1>
+<h2 class="rate-table-title-left">Ratings And Reviews</h2>
 
-<p>
+<p class="rate-link-left">
     @Html.ActionLink("Rate & Review", "Create", new { bookId = ViewBag.Id })
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Review)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table">
+    <table class="table-center">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Review)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Review)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

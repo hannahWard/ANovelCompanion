@@ -3,55 +3,54 @@
 @{
     ViewData["Title"] = "Index";
 }
-    
-        <h1>Book List</h1>
 
-        <p>
-            <a asp-action="Create">Add A New Book</a>
-        </p>
-        <div class="table">
-            <table class="table-center">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Title)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Author)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.AverageRating)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
+
+<h1 class="table-title">Book List</h1>
+<a asp-action="Create" class="link">Add A New Book</a>
+
+<div class="table">
+    <table class="table-center">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageRating)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    @if (item.AverageRating == 0)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Title)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Author)
-                            </td>
-                            @if (item.AverageRating == 0)
-                            {
-                                <td>Not Yet Rated</td>
-                            }
-                            else
-                            {
-                                <td>@Html.DisplayFor(modelItem => item.AverageRating)</td>
-                            }
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-                                @Html.ActionLink("Rate", "Create", "RatingAndReview", new { bookId = item.Id })
-                            </td>
-                        </tr>
+                        <td>Not Yet Rated</td>
                     }
-                </tbody>
-            </table>
-        </div>
-   
+                    else
+                    {
+                        <td>@Html.DisplayFor(modelItem => item.AverageRating)</td>
+                    }
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                        @Html.ActionLink("Rate", "Create", "RatingAndReview", new { bookId = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+</div>

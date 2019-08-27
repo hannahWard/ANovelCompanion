@@ -3,32 +3,31 @@
 @{
     ViewData["Title"] = "Details";
 }
-    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 
-<h1>@Model.Title</h1>
-<h2>@Model.Author</h2>
+<h1 class="book-title">@Model.Title</h1>
+<h2 class="book-author">@Model.Author</h2>
+<p class="book-rating-link">Average Rating: @Model.AverageRating | @Html.ActionLink("Ratings & Reviews", "Index", "RatingAndReview", new { bookId = Model.Id })</p>
 
 @foreach (var category in Model.Categories)
 {
-    <p>@category</p>
+    <p class="book-category">@category |</p>
 }
 
-<p>Average Rating: @Model.AverageRating | @Html.ActionLink("Ratings & Reviews", "Index", "RatingAndReview", new { bookId = Model.Id })</p>
-
-<p>@Html.ActionLink("Add A Spoiler", "Create", "Spoiler", new { bookId = Model.Id })</p>
-
-<h2><u>Spoilers</u></h2>
-@foreach (var spoiler in Model.Spoilers)
-{
-    <h3>@spoiler.Title</h3>
-    <p>@spoiler.Description</p>
-    @if (!String.IsNullOrEmpty(spoiler.Image))
+<h2 class="table-title-left">Spoilers</h2>
+<p class="link-left">@Html.ActionLink("Add A Spoiler", "Create", "Spoiler", new { bookId = Model.Id })</p>
+<div class="table-left">
+    @foreach (var spoiler in Model.Spoilers)
     {
-        <a href="@spoiler.Image"><img id="image" src="@Url.Content(spoiler.Image)" /></a>
+        <h3 class="table-left-data">@spoiler.Title</h3>
+        <p class="table-left-data-description">@spoiler.Description</p>
+        @if (!String.IsNullOrEmpty(spoiler.Image))
+        {
+            <a href="@spoiler.Image"><img id="image" src="@Url.Content(spoiler.Image)" /></a>
+        }
+        <hr />
     }
-    <hr />
-}
-
+</div>
 
 
 
