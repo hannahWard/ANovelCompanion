@@ -10,7 +10,7 @@ namespace ANovelCompanion.ViewModels
 {
     public class BookCreateViewModel
     {
-        [Display(Name = "Categories")]
+        [Display(Name = "Categories:")]
         public List<int> CategoryIds { get; set; }
         public List<Category> Categories { get; set; }
 

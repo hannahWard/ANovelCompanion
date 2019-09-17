@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="create-title">Edit</h1>
 
 
 <hr />
@@ -29,10 +29,10 @@
             </div>
             <div class="form-group">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <label asp-for="CategoryIds" class="control-label"></label>
+                <label asp-for="CategoryIds" class="category-label"></label>
                 @foreach (var category in Model.Categories)
                 {
-                    <label>@category.Name</label>
+                    <label class="control-label">@category.Name</label>
                     @if (Model.CategoryIds != null)
                     {
                         @if (Model.CategoryIds.Contains(category.Id))

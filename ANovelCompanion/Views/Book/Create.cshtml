@@ -4,8 +4,12 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Add A Book</h1>
+    
 
+<h1 class="create-title">Add A Book</h1>
+<div class="add-link-left">
+    <a asp-action="Index">Book List</a>
+</div>
 
 <hr />
 <div class="row">
@@ -29,10 +33,10 @@
             </div>
             <div class="form-group">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <label asp-for="CategoryIds" class="control-label"></label>
+                <label asp-for="CategoryIds" class="category-label"></label>
                 @foreach (var category in Model.Categories)
                 {
-                    <label>@category.Name</label>
+                    <label class="control-label">@category.Name</label>
                     <input type="checkbox" name="CategoryIds" value="@category.Id" />
                 }
 
@@ -44,9 +48,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Book List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
