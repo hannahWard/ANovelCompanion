@@ -16,6 +16,7 @@ namespace ANovelCompanion.ViewModels.RatingAndReviews
         public string Review { get; set; }
         public int BookId { get; set; }
 
+
         internal void Persist(RepositoryFactory repositoryFactory)
         {
             RatingAndReview ratingAndReview = new RatingAndReview
