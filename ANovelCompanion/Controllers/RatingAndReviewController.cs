@@ -31,6 +31,7 @@ namespace ANovelCompanion.Controllers
         [HttpGet]
         public IActionResult Create(int bookId)
         {
+            ViewBag.Title = repositoryFactory.GetBookRepository().GetById(bookId).Title;
             return View();
         }
 
