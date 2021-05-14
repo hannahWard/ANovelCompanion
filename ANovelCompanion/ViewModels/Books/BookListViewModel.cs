@@ -33,6 +33,7 @@ namespace ANovelCompanion.ViewModels
             this.Id = book.Id;
             this.Title = book.Title;
             this.Author = book.AuthorFullName;
+
             if (book.Ratings.Count() == 0)
             {
                 this.AverageRating = 0;
